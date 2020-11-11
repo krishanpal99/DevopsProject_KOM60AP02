@@ -1,104 +1,68 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="utf-8">
-    <title>Blog Project</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans">
-    <link rel="stylesheet" href="css/normalize.min.css">
-    <link rel="stylesheet" href="css/app.css">
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="front.css">
+<style>
+
+
+</style>
 </head>
 <body>
 
-    <header class="page-header">
-        <h1>Expedition</h1>
-    </header>
+<div class="header">
+  <!--<h2>Scroll Down</h2>
+  <p>Scroll down to see the sticky effect.</p>-->
+  <img id="header-image" >
+  <div class="cpm-logo"></div>
+</div>
 
-    <div class="container">
-        <main>
-            <h2 class="visuallyhidden">Articles</h2>
 
-            <article>
-                <header>
-                    <h3>Chasing the Snow</h3>
-                    <time datetime="2016-05-12T08:00">May 12</time>
-                </header>
+<div id="navbar">
+  <a class="active" href="javascript:void(0)">Home</a>
+  <a href="javascript:void(0)">News</a>
+  <a href="javascript:void(0)">Contact</a>
+  <li style="float: right;"><a href="javascript:void(0)"><style></style><i class="fa fa-user-circle-o" aria-hidden="true"></i>
+   &nbsp;  About</a></li>
+</div>
 
-                <img src="img/chasing-the-snow.jpg" alt="A dogsled team in Alaska">
+<div class="content">
+  <h3 style="text-align: center; font-family:fantasy; color: crimson;"><u>About Us</u></h3>
+  <div>
+  <p><i class="fa fa-quote-left" aria-hidden="true"></i> Develop a platform that enhances employer branding in order to attract</p>
+  <p>highly skilled tech talent to the organization—by showcasing company</p>  
+  <p>ulture, employee happiness indices, authorized certifications, career</p>
+  <p>c growth opportunities and others.<i class="fa fa-quote-right" aria-hidden="true"></i>
+  </p>
+  </div>
+  <br>
+  <br>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, laborum dolorem, dolor error nihil vitae similique necessitatibus omnis iure quasi vel iste repellendus alias! Asperiores voluptatem, maiores quibusdam eaque consequatur.</p>
+  <div class="quote_2">
 
-                <a class="read-more" href="#">Read more</a>
-            </article>
+    <p><i class="fa fa-quote-left" aria-hidden="true"></i>Build a suggestion/recommendation engine that automatically
+      <p>vets and picks out potential hires from job sites, </p>
+      <p>based on the skill sets advertised by the organization.</p><i class="fa fa-quote-right" aria-hidden="true"></i>
+  </div>
+  
+</div>
 
-            <article>
-                <header>
-                    <h3>Seeing Clearly</h3>
-                    <time datetime="2016-05-09T10:35">May 09</time>
-                </header>
+<script>
+window.onscroll = function() {myFunction()};
 
-                <img src="img/seeing-clearly.png" alt="Mountain peaks in Alaska">
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, laborum dolorem, dolor error nihil vitae similique necessitatibus omnis iure quasi vel iste repellendus alias! Asperiores voluptatem, maiores quibusdam eaque consequatur.</p>
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
 
-                <a class="read-more" href="#">Read more</a>
-            </article>
-
-            <article>
-                <header>
-                    <h3>Something to Remember</h3>
-                    <time datetime="2016-05-06T22:50">May 06</time>
-                </header>
-
-                <img src="img/something-to-remember.jpg" alt="A winding, snow-covered road">
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, laborum dolorem, dolor error nihil vitae similique necessitatibus omnis iure quasi vel iste repellendus alias! Asperiores voluptatem, maiores quibusdam eaque consequatur.</p>
-
-                <a class="read-more" href="#">Read more</a>
-            </article>
-
-            <article>
-                <header>
-                    <h3>Village in the Valley</h3>
-                    <time datetime="2016-05-06T22:49">May 06</time>
-                </header>
-
-                <img src="img/village-in-the-valley.jpg" alt="A quaint winter village nestled in the mountain">
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, laborum dolorem, dolor error nihil vitae similique necessitatibus omnis iure quasi vel iste repellendus alias! Asperiores voluptatem, maiores quibusdam eaque consequatur.</p>
-
-                <a class="read-more" href="#">Read more</a>
-            </article>
-        </main>
-
-        <aside>
-            <img src="img/profilepic.jpg" alt="My profile picture">
-
-            <div class="sidebar-text">
-                <h2>About Me</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque ducimus delectus esse repellendus. Harum esse laudantium itaque, aut cum molestias magni voluptatum veritatis alias. Veniam, impedit fuga ab saepe repudiandae.</p>
-
-                <section>
-                    <h3 class="visuallyhidden">Social Links</h3>
-                    <a class="social-link" href="https://twitter.com/udacity">
-                        <img src="img/social-twitter.png" alt="Twitter">
-                    </a>
-                    <a class="social-link" href="https://www.instagram.com/udacity/">
-                        <img src="img/social-instagram.png" alt="Instagram">
-                    </a>
-                    <a class="social-link" href="https://plus.google.com/+Udacity">
-                        <img src="img/social-google.png" alt="Google Plus">
-                    </a>
-                </section>
-            </div>
-        </aside>
-    </div>
-
-    <footer>
-        Made with &hearts; by Richard @ Udacity
-    </footer>
-
-    <script src="js/app.js"></script>
 </body>
 </html>
