@@ -1,68 +1,65 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="front.css">
-<style>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="front.css" />
+    <style></style>
+  </head>
+  <body class="d-flex justify-content-center">
+    <h3>Input numbers to be sorted</h3>
+    <p id="sorted"></p>
+    <script type="text/javascript">
+      var elements = prompt("Please elements to be sorted:")
+        .split(" ")
+        .map((ele) => {
+          return Number(ele);
+        });
+      QuickSort();
+      function partitioner(low, high, elements) {
+        let p = elements[high];
+        let i = low - 1;
+        for (let j = low; j < high; j++) {
+          if (elements[j] < p) {
+            i++;
 
+            let temp = elements[i];
+            elements[i] = elements[j];
+            elements[j] = temp;
+          }
+        }
 
-</style>
-</head>
-<body>
+        let temp = elements[i + 1];
+        elements[i + 1] = elements[high];
+        elements[high] = temp;
 
-<div class="header">
-  <!--<h2>Scroll Down</h2>
-  <p>Scroll down to see the sticky effect.</p>-->
-  <img id="header-image" >
-  <div class="cpm-logo"></div>
-</div>
+        return i + 1;
+      }
 
+      function sortArray(low, high, elements) {
+        if (low < high) {
+          let pi = partitioner(low, high, elements);
 
-<div id="navbar">
-  <a class="active" href="javascript:void(0)">Home</a>
-  <a href="javascript:void(0)">News</a>
-  <a href="javascript:void(0)">Contact</a>
-  <li style="float: right;"><a href="javascript:void(0)"><style></style><i class="fa fa-user-circle-o" aria-hidden="true"></i>
-   &nbsp;  About</a></li>
-</div>
+          sortArray(low, pi - 1, elements);
+          sortArray(pi + 1, high, elements);
+        }
+      }
 
-<div class="content">
-  <h3 style="text-align: center; font-family:fantasy; color: crimson;"><u>About Us</u></h3>
-  <div>
-  <p><i class="fa fa-quote-left" aria-hidden="true"></i> Develop a platform that enhances employer branding in order to attract</p>
-  <p>highly skilled tech talent to the organization—by showcasing company</p>  
-  <p>ulture, employee happiness indices, authorized certifications, career</p>
-  <p>c growth opportunities and others.<i class="fa fa-quote-right" aria-hidden="true"></i>
-  </p>
-  </div>
-  <br>
-  <br>
-
-  <div class="quote_2">
-
-    <p><i class="fa fa-quote-left" aria-hidden="true"></i>Build a suggestion/recommendation engine that automatically
-      <p>vets and picks out potential hires from job sites, </p>
-      <p>based on the skill sets advertised by the organization.</p><i class="fa fa-quote-right" aria-hidden="true"></i>
-  </div>
-  
-</div>
-
-<script>
-window.onscroll = function() {myFunction()};
-
-var navbar = document.getElementById("navbar");
-var sticky = navbar.offsetTop;
-
-function myFunction() {
-  if (window.pageYOffset >= sticky) {
-    navbar.classList.add("sticky")
-  } else {
-    navbar.classList.remove("sticky");
-  }
-}
-</script>
-
-</body>
+      function QuickSort() {
+        sortArray(0, elements.length - 1, elements);
+        document.write(
+          "<font face='arial' size='4'>Sorted List of Numbers:</font>"
+        );
+        for (var i = 0; i < elements.length; i++) {
+          document.write(
+            "<font face='arial' size='4'> " + elements[i] + "</font>"
+          );
+        }
+      }
+    </script>
+  </body>
 </html>
