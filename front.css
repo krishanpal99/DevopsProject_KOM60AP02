@@ -65,3 +65,9 @@ body {
    top: 80px;
    left: 450px;
   }
+  .inputf{
+    align-items: center;
+    background-color: yellowgreen;
+    padding-left: 50px;
+    padding-top: 10px;
+  }
