@@ -12,13 +12,15 @@
 </head>
 <body>
 
-<div class="header">
+<!-- <div class="header"> -->
   <!--<h2>Scroll Down</h2>
   <p>Scroll down to see the sticky effect.</p>-->
-  <img id="header-image" >
+  <!-- <img id="header-image" >
   <div class="cpm-logo"></div>
+</div> -->
+<div class="heading">
+  <center><h1>SORTING COMPARISIONS</h1></center>
 </div>
-
 
 <div id="navbar">
   <a class="active" href="javascript:void(0)">Home</a>
@@ -28,26 +30,39 @@
    &nbsp;  About</a></li>
 </div>
 
-<div class="content">
-  <h3 style="text-align: center; font-family:fantasy; color: crimson;"><u>About Us</u></h3>
-  <div>
-  <p><i class="fa fa-quote-left" aria-hidden="true"></i> Develop a platform that enhances employer branding in order to attract</p>
-  <p>highly skilled tech talent to the organization—by showcasing company</p>  
-  <p>ulture, employee happiness indices, authorized certifications, career</p>
-  <p>c growth opportunities and others.<i class="fa fa-quote-right" aria-hidden="true"></i>
-  </p>
-  </div>
-  <br>
-  <br>
+<div class="inputf">
+<!--  <input type="text"  id="input1" size="10"/>
+  <input type="button" value="Merge Sort" id="submit" onclick="take_input()"/>
+-->
+<h3 id="po">Input  Elements</h3> 
+  <!-- <p>ENter the no. of elements to sort </p>
+  <input type="text" id="size1" value=""/><br><br> -->
 
-  <div class="quote_2">
-
-    <p><i class="fa fa-quote-left" aria-hidden="true"></i>Build a suggestion/recommendation engine that automatically
-      <p>vets and picks out potential hires from job sites, </p>
-      <p>based on the skill sets advertised by the organization.</p><i class="fa fa-quote-right" aria-hidden="true"></i>
-  </div>
   
+    <form class="al" action="index.html" method="post"> 
+      <!-- <div id = "list"></div> -->
+        <input type="text" name="array[]" value="" /><br> 
+        <input type="text" name="array[]" value="" /><br> 
+        <input type="text" name="array[]" value="" /><br> 
+        <input type="text" name="array[]" value="" /><br> 
+        <input type="text" name="array[]" value="" /><br> 
+        <button type="button" name="button" onclick="take_input()"> 
+           Merge Sort & calculate performance
+        </button> 
+        <br>
+        
+         
+        
+     </form>
+     
+    <p id = "par"></p>
+    <br>
+
 </div>
+<br>
+<br>
+<br>
+
 
 <script>
 window.onscroll = function() {myFunction()};
@@ -62,7 +77,80 @@ function myFunction() {
     navbar.classList.remove("sticky");
   }
 }
+var inputArray =[];
+
+function take_input(){
+
+  var input = document.getElementsByName('array[]'); 
+  // var i_size = document.getElementById('size1');
+
+  // for(var c = 0; c < i_size; c++){
+  //   var x = document.createElement("input");
+  //   x.setAttribute("type","number");
+  // }
+  //document.getElementById("list").innerHTML= x;
+  var inputArray =[];
+  for (var i = 0; i < input.length; i++) { 
+      //var a = input[i]; 
+      var ans = input[i];
+      inputArray.push(Number(ans.value));
+  }
+  //alert(inputArray.length);
+  //alert(inputArray[0]);
+  start = performance.now();
+  function mergeSort (inputArray) {
+  // No need to sort the array if the array only has one element or empty
+  if (inputArray.length <= 1) {
+    return inputArray;
+  }
+  // In order to divide the array in half, we need to figure out the middle
+  const middle = Math.floor(inputArray.length / 2);
+
+  // This is where we will be dividing the array into left and right
+  const left = inputArray.slice(0, middle);
+  const right = inputArray.slice(middle);
+
+  // Using recursion to combine the left and right
+  return merge(
+    mergeSort(left), mergeSort(right)
+  );
+}
+
+// Merge the two arrays: left and right
+function merge (left, right) {
+  let resultArray = [], leftIndex = 0, rightIndex = 0;
+
+  // We will concatenate values into the resultArray in order
+  while (leftIndex < left.length && rightIndex < right.length) {
+    if (left[leftIndex] < right[rightIndex]) {
+      resultArray.push(left[leftIndex]);
+      leftIndex++; // move left array cursor
+    } else {
+      resultArray.push(right[rightIndex]);
+			rightIndex++; // move right array cursor
+    }
+  }
+
+  // We need to concat to the resultArray because there will be one element left over after the while loop
+  return resultArray
+          .concat(left.slice(leftIndex))
+          .concat(right.slice(rightIndex));
+}
+
+end = performance.now();
+var timeelapsed = end-start;
+
+
+alert(mergeSort(inputArray));
+document.getElementById("par").innerHTML = "Time taken by this sorting algo is: "+timeelapsed;
+
+
+}
+
+
 </script>
+
+
 
 </body>
 </html>
